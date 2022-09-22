@@ -44,6 +44,10 @@ class ViewController: UIViewController {
             teamsDataBase = temp.teams
 
         }
+        
+        // Favourite Leagues
+        CoreData.fetchingFromCoreData()
+
     }
 }
 
@@ -66,7 +70,6 @@ extension ViewController: UICollectionViewDataSource{
                     cell.sportImageView.contentMode = .scaleAspectFit
                 case .success:
                     cell.sportImageView.contentMode = .scaleAspectFill
-                default: break
             }
 
         }

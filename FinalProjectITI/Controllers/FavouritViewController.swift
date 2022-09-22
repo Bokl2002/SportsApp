@@ -15,6 +15,7 @@ class FavouritViewController: UIViewController {
         super.viewDidLoad()
         favouritesTableView.delegate = self
         favouritesTableView.dataSource = self
+
         
     }
     
@@ -63,13 +64,12 @@ extension FavouritViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let leagueDetailsVC = storyboard?.instantiateViewController(withIdentifier: "leagueDetailsVC") as! LeagueDetailsViewController
+        leagueDetailsVC.leagueDataBase = favouriteLeagues[indexPath.row]
         
         leagueDetailsVC.modalPresentationStyle = .fullScreen
-        leagueDetailsVC.leagueDataBase = favouriteLeagues[indexPath.row]
         present(leagueDetailsVC, animated: true)
-        
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     

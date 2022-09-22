@@ -74,13 +74,13 @@ class LeaguesViewController: UIViewController{
 
 extension LeaguesViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
         let leagueDetailsVC = storyboard?.instantiateViewController(withIdentifier: "leagueDetailsVC") as! LeagueDetailsViewController
+        leagueDetailsVC.leagueDataBase = self.sportLeagues[indexPath.row]
         
         leagueDetailsVC.modalPresentationStyle = .fullScreen
-        leagueDetailsVC.leagueDataBase = self.sportLeagues[indexPath.row]
         present(leagueDetailsVC, animated: true)
-        
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
@@ -96,18 +96,18 @@ extension LeaguesViewController: UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "leaguescell") as! LeagueTableViewCell
-
         let idx = indexPath.row
+        let cell = tableView.dequeueReusableCell(withIdentifier: "leaguescell") as! LeagueTableViewCell
+        // title
         cell.leagueTitleTableViewCell.text = sportLeagues[idx].strLeague
-
+        // image
         cell.leagueImageViewCell.kf.setImage(with: URL(string: sportLeagues[idx].strBadge ?? "defaultImage"))
         cell.leagueImageViewCell.layer.cornerRadius = cell.leagueImageViewCell.frame.width/2
-
-        if let x = sportLeagues[idx].strYoutube{
+        // video
+        if let YTurl = sportLeagues[idx].strYoutube{
             cell.leagueVideoTableViewCell.tag = indexPath.row
             cell.leagueVideoTableViewCell.isEnabled = true
-            if x.isEmpty{
+            if YTurl.isEmpty{
                 cell.leagueVideoTableViewCell.tintColor = .systemGray5
                 cell.leagueVideoTableViewCell.isEnabled = false
             }
@@ -116,7 +116,7 @@ extension LeaguesViewController: UITableViewDataSource{
             cell.leagueVideoTableViewCell.isEnabled = false
         }
         cell.leagueVideoTableViewCell.addTarget(self, action: #selector(openVideo), for: .touchUpInside)
-
+        
 
         return cell
     }

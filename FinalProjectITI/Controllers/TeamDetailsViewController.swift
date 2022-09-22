@@ -16,7 +16,6 @@ class TeamDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         
         teamNameLabel.text = teamData.strTeam ?? ""
@@ -28,7 +27,7 @@ class TeamDetailsViewController: UIViewController {
     @IBAction func teamYoutubeBTN(_ sender: Any) {
 
         let url = "https://" + (teamData.strYoutube ?? "")
-        UIApplication.shared.open(URL(string: url) as! URL)
+        UIApplication.shared.open(URL(string: url)!)
     }
     
     @IBAction func teamDetailBackBTN(_ sender: Any) {

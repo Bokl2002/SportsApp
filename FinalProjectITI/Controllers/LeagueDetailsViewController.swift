@@ -46,6 +46,7 @@ class LeagueDetailsViewController: UIViewController{
         
         leagueDetailsVC()
         teamsData = classifyTeams(myData: teamsDataBase, leagueName: self.leagueName)
+
     }
     override func viewWillAppear(_ animated: Bool) {
         checkFavourite()
@@ -68,7 +69,7 @@ class LeagueDetailsViewController: UIViewController{
         }
     }
     func checkFavourite(){
-        guard let id = leagueDataBase.idLeague else {return}
+        guard let id = self.leagueDataBase.idLeague else {return}
         if isFavourite[id] == true{
             favouriteBTN.image = UIImage(systemName: "star.fill")
         }else{
@@ -81,6 +82,8 @@ class LeagueDetailsViewController: UIViewController{
         name()
         image()
         description()
+        checkFavourite()
+
     }
     func name(){
         if let temp = leagueDataBase.strLeague{
@@ -136,15 +139,19 @@ class LeagueDetailsViewController: UIViewController{
     }
     @IBAction func favouriteBTN(_ sender: Any) {
         guard let id = leagueDataBase.idLeague else {return}
+        // add fav
         if isFavourite[id] != true{
             isFavourite[id] = true
             favouriteBTN.image = UIImage(systemName: "star.fill")
             favouriteLeagues.append(leagueDataBase)
+            CoreData.newFavouritCoreData(leagueDataBase)
         }else{
+            // remove fav
             isFavourite[id] = false
             favouriteBTN.image = UIImage(systemName: "star")
             for league in 0..<favouriteLeagues.count{
                 if favouriteLeagues[league].idLeague == id{
+                    CoreData.deleteFromCoreData(favouriteLeagues[league])
                     favouriteLeagues.remove(at: league)
                     break
                 }
@@ -196,7 +203,6 @@ extension LeagueDetailsViewController: UITableViewDataSource, UITableViewDelegat
             cell.stadImageImageView.contentMode = .scaleAspectFit
             cell.stadImageImageView.image = UIImage(named: "notfound")
         }
-        
         // details button
         cell.teamDetailsButton.tag = idx
         cell.teamDetailsButton.addTarget(self, action: #selector(viewTeamDetailsButton), for: .touchUpInside)
