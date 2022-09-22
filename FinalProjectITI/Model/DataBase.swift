@@ -8,6 +8,13 @@
 import Foundation
 import UIKit
 
+var sportsDataBase: [SportDataBaseModel] = []
+var leaguesDataBase:[LeagueDataBaseModel] = []
+var teamsDataBase: [TeamDataBaseModel] = []
+
+var favouriteLeagues:[LeagueDataBaseModel] = []
+var isFavourite: [String: Bool] = [:]
+
 // sports
 struct SportDataBaseModel: Decodable{
     var idSport: String?
@@ -29,6 +36,7 @@ struct LeagueDataBaseModel: Decodable{
     var strYoutube: String?
     var strSport: String?
     var strDescriptionEN: String?
+    var idLeague: String?
 }
 struct LeaguesDataBaseModel: Decodable{
     var countries: [LeagueDataBaseModel]

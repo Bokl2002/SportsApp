@@ -45,7 +45,14 @@ class LeaguesViewController: UIViewController{
         leaguesTableView.dataSource = self
         
         sportLeagues = classify(myData: leaguesDataBase, sportName: self.sportName)
+        checkIfEmpty()
         
+        self.leaguesHeader.text = self.sportName + " leagues"
+        self.leaguesTableView.reloadData()
+        
+    }
+    
+    func checkIfEmpty(){
         if (leaguesIsEmpty){
             self.leaguesTableView.isHidden = true
             self.notFoundImage.image = UIImage(named: "notFound")
@@ -53,16 +60,13 @@ class LeaguesViewController: UIViewController{
             self.notFoundImage.isHidden = true
             self.noLeaguesLabel.isHidden = true
         }
-        self.leaguesHeader.text = self.sportName + " leagues"
-        self.leaguesTableView.reloadData()
-        
     }
 
     
     @objc func openVideo(_ sender: UIButton){
         if let urlStr = sportLeagues[sender.tag].strYoutube{
             let url = "https://" + urlStr
-            UIApplication.shared.open(URL(string: url) as! URL)
+            UIApplication.shared.open(URL(string: url)!)
         }
     }
     

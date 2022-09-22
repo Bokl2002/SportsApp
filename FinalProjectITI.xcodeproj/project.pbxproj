@@ -17,6 +17,7 @@
 		689AC6BD28A167DC000A71E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 689AC6BB28A167DC000A71E8 /* LaunchScreen.storyboard */; };
 		689AC6C628A16908000A71E8 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 689AC6C528A16908000A71E8 /* Alamofire */; };
 		689AC6CA28A18245000A71E8 /* SportCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689AC6C928A18245000A71E8 /* SportCollectionViewCell.swift */; };
+		68BE7D2128DC899A009DECE8 /* FavouriteCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BE7D2028DC899A009DECE8 /* FavouriteCellTableViewCell.swift */; };
 		68C75EBE28A22C24000D76B5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 68C75EBD28A22C24000D76B5 /* Kingfisher */; };
 		68C75EC228A23A12000D76B5 /* LeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C75EC128A23A12000D76B5 /* LeaguesViewController.swift */; };
 		68C75EC428A23A8B000D76B5 /* LeagueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C75EC328A23A8B000D76B5 /* LeagueTableViewCell.swift */; };
@@ -37,6 +38,7 @@
 		689AC6BC28A167DC000A71E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		689AC6BE28A167DC000A71E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		689AC6C928A18245000A71E8 /* SportCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportCollectionViewCell.swift; sourceTree = "<group>"; };
+		68BE7D2028DC899A009DECE8 /* FavouriteCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCellTableViewCell.swift; sourceTree = "<group>"; };
 		68C75EC128A23A12000D76B5 /* LeaguesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewController.swift; sourceTree = "<group>"; };
 		68C75EC328A23A8B000D76B5 /* LeagueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTableViewCell.swift; sourceTree = "<group>"; };
 		68E5C46128A2D119007A1BBD /* LeagueDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueDetailsViewController.swift; sourceTree = "<group>"; };
@@ -111,10 +113,11 @@
 			isa = PBXGroup;
 			children = (
 				689AC6B428A167D9000A71E8 /* SportsViewController.swift */,
-				68EBF2CC28A40D7300C58DFE /* TeamDetailsViewController.swift */,
-				68E5C46128A2D119007A1BBD /* LeagueDetailsViewController.swift */,
 				68C75EC128A23A12000D76B5 /* LeaguesViewController.swift */,
+				68E5C46128A2D119007A1BBD /* LeagueDetailsViewController.swift */,
+				68EBF2CC28A40D7300C58DFE /* TeamDetailsViewController.swift */,
 				68E5C46428A30250007A1BBD /* FavouritViewController.swift */,
+				68BE7D2028DC899A009DECE8 /* FavouriteCellTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				6894221D28A37D0D00404603 /* TeamsTableViewCell.swift in Sources */,
 				68C75EC428A23A8B000D76B5 /* LeagueTableViewCell.swift in Sources */,
 				68E5C46228A2D119007A1BBD /* LeagueDetailsViewController.swift in Sources */,
+				68BE7D2128DC899A009DECE8 /* FavouriteCellTableViewCell.swift in Sources */,
 				68C75EC228A23A12000D76B5 /* LeaguesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

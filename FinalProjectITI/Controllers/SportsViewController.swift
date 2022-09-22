@@ -9,12 +9,6 @@ import UIKit
 import Alamofire
 import Kingfisher
 
-var sportsDataBase: [SportDataBaseModel] = []
-
-var leaguesDataBase:[LeagueDataBaseModel] = []
-
-var teamsDataBase: [TeamDataBaseModel] = []
-
 
 class ViewController: UIViewController {
     
@@ -22,18 +16,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
         sportsCollectionView.dataSource = self
         sportsCollectionView.delegate = self
         navigationController?.navigationBar.barStyle = .black
-
         loadData()
-
-
     }
-    
-    
     
     func loadData(){
         // sports
@@ -59,7 +46,6 @@ class ViewController: UIViewController {
         }
     }
 }
-
 
 
 extension ViewController: UICollectionViewDataSource{
